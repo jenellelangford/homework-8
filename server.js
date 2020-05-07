@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 app.get('/notes', (req, res) => {
   // should return to notes.html
-  res.sendFile(path.join(__dirname, 'notes.html'));
+  res.sendFile(path.join('notes.html'));
 });
 
 // API Calls
