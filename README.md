@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # homework-8
 **Note Taker Homework**
 
@@ -15,5 +16,8 @@ Note Taker allows the user to create, save and delete notes.
 * GitHub username: jenellelangford
 * GitHub email: jenellelangford@gmail.com
 * GitHub Project URL: https://github.com/jenellelangford/homework-8
+=======
+Note Taker Homework
+>>>>>>> 103c043b9b55f962d11b5df266c2d2bbd902222f
 
 
