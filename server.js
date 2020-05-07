@@ -31,14 +31,14 @@ const deletedNote = [];
 
 app.get('/', (req, res) => {
   // should return to the index.html
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 
 });
 
 
 app.get('/notes', (req, res) => {
   // should return to notes.html
-  res.sendFile(path.join(__dirname, 'public/notes.html'));
+  res.sendFile(path.join(__dirname, 'notes.html'));
 });
 
 // API Calls
@@ -64,11 +64,8 @@ try {
 
   newNote = (JSON.stringify(newNote));
 
-  fs.writeFile('db/db.json', newNote => {
-    if (err) throw err;
-  })
-}
-});
+  fs.writeFile('db/db.json')
+
 
 
 app.delete('/api/notes/:id', (req, res) => {
