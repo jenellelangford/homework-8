@@ -34,7 +34,7 @@ const deletedNote = [];
 
 app.get('/notes', (req, res) => {
   // should return to notes.html
-  res.sendFile(path.join(__dirname, 'notes.html'));
+  res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 
 // API Calls
@@ -74,7 +74,7 @@ app.delete('/api/notes/:id', (req, res) => {
 
 app.get('/', (req, res) => {
   // should return to the index.html
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 
 });
 
