@@ -17,7 +17,7 @@ app.set('view engine', 'html');
 
 // What variables do I need:
 const newTitle = [];
-const newNote = [];
+let newNote = [];
 const deletedNote = [];
 
 
@@ -29,23 +29,19 @@ const deletedNote = [];
   // API notes (POST)
   // API notes (DELETE)
 
-app.get('/', (req, res) => {
-  // should return to the index.html
-  res.sendFile(path.join(__dirname, 'index.html'));
 
-});
 
 
 app.get('/notes', (req, res) => {
   // should return to notes.html
-  res.sendFile(path.join('notes.html'));
+  res.sendFile(path.join(__dirname, 'public/notes.html'));
 });
 
 // API Calls
 
 app.get('/api/notes', (req, res) => {
   // sould read the db.json file and return all saved notes
-const newNote;
+let newNote;
 try { 
   newNote = fs.readFileSync('db/db.json');
   newNote = JSON.parse(newNote);
@@ -57,23 +53,30 @@ res.json(newNote);
 
 app.post('/api/notes', (req, res) => {
 // should recieve new note to save and add to the db.json
-try {
-  newNote = fs.readFileSync('db/db.json');
-  newNote = JSON.parse;
-  newNote.push(req.body)
+  try {
+    newNote = fs.readFileSync('db/db.json');
+    newNote = JSON.parse;
+    newNote.push(req.body)
 
-  newNote = (JSON.stringify(newNote));
+    newNote = (JSON.stringify(newNote));
 
-  fs.writeFile('db/db.json')
-
-
+    fs.writeFile('db/db.json')
+  }
+  catch (err) {
+    console.log(err);
+  }
+});
 
 app.delete('/api/notes/:id', (req, res) => {
   // should recieve a query parameter with id of note to delete.
 });
 
 
+app.get('/', (req, res) => {
+  // should return to the index.html
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 
+});
 
 
 
