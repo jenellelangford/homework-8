@@ -58,7 +58,13 @@ app.get("/api/notes", (req, res) => {
 
 // Calling one note
 app.get("/api/notes/:id", (req, res) => {
+  const found = notes.some(notes => notes.id === parseInt(req.params.id));
+
+  if (found) {
   res.json(data.filter(notes => notes.id === parseInt(req.params.id)));
+  } else {
+    res.status(400).json({ msg: "Note not found." });
+  }
 });
 
 /*
